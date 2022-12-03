@@ -53,11 +53,11 @@ fun main() {
     fun part1(input: List<String>): Int {
         var totalScore = 0
         for (line in input) {
-            var score = 0
-            val values = line.split(" ");
+            var score: Int
+            val values = line.split(" ")
             val left = toNum(values[0])
             val right = toNum(values[1])
-            val outcome = computeOutcomeScore(Pair(left,right))
+            val outcome = computeOutcomeScore(Pair(left, right))
             score = right + outcome
             totalScore += score
         }
@@ -67,14 +67,14 @@ fun main() {
     fun part2(input: List<String>): Int {
         var totalScore = 0
         for (line in input) {
-            var score = 0
-            val values = line.split(" ");
+            var score: Int
+            val values = line.split(" ")
             val left = toNum(values[0])
             var right = 0
             val desiredOutcome = getDecidedOutcomeChar(values[1])
-            for (char in listOf("X","Y","Z")) {
+            for (char in listOf("X", "Y", "Z")) {
                 val testRight = toNum(char)
-                val testOutcome = computeOutcomeScore(Pair(left,testRight))
+                val testOutcome = computeOutcomeScore(Pair(left, testRight))
                 if (verifyOutcome(Pair(testOutcome, desiredOutcome))) {
                     right = toNum(char)
                 }
