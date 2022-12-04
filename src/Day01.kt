@@ -1,14 +1,15 @@
 fun main() {
 
     fun getBiggestKcal(input: List<String>): ArrayList<Int> {
-        val summedUpValues = arrayListOf<Int>();
-        var summedUpValue = 0;
+        val summedUpValues = arrayListOf<Int>()
+        var summedUpValue = 0
         for (it in input) {
             when (it) {
                 "" -> {
                     summedUpValues.add(summedUpValue)
-                    summedUpValue = 0;
+                    summedUpValue = 0
                 }
+
                 input[input.lastIndex] -> {
                     summedUpValue += it.toInt()
                     summedUpValues.add(summedUpValue)
