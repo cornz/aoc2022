@@ -10,10 +10,8 @@ fun main() {
                     if (numbercounter > 0 && numbercounter < list.size - 1) {
                         val left = list.slice(0 until numbercounter)
                         val right = list.slice(numbercounter + 1 until list.size)
-                        val up = twoDArray.slice(0 until listcounter).map { x -> x.slice(numbercounter..numbercounter) }
-                            .flatten()
-                        val down = twoDArray.slice(listcounter + 1 until twoDArray.size)
-                            .map { x -> x.slice(numbercounter..numbercounter) }.flatten()
+                        val up = twoDArray.slice(0 until listcounter).map { x -> x[numbercounter] }
+                        val down = twoDArray.slice(listcounter + 1 until twoDArray.size).map { x -> x[numbercounter] }
                         var leftScore = 0
                         var rightScore = 0
                         var upScore = 0
