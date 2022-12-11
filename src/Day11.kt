@@ -128,12 +128,15 @@ fun main() {
     }
 
     fun part2(input: List<String>): BigInteger {
+
         val monkeys = processLongMonkeys(input)
+        val lcm = monkeys.map { it.divisor }.reduce { acc, i -> acc * i }
         var i = 0
         repeat(10000) {
             for (monkey in monkeys) {
                 for (item in monkey.items) {
-                    val worryLevel = processItem(item, monkey)
+                    var worryLevel = processItem(item, monkey)
+                    worryLevel = worryLevel.mod(BigInteger.valueOf(lcm.toLong()))
                     throwItemToMonkey(worryLevel, monkey, monkeys)
                 }
                 monkey.items.clear()
